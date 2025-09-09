@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luan Lima | Técnico Colorista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ===== Estilo geral ===== */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background: #121212;
+      color: #fff;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark .card {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    .profile-img img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #ffcc00;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0.5rem 0;
+    }
+
+    .description {
+      color: #777;
+      margin-bottom: 1.5rem;
+    }
+    body.dark .description { color: #aaa; }
+
+    /* ===== Serviços ===== */
+    .services {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-item {
+      background: rgba(0,0,0,0.05);
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    body.dark .service-item {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .service-item:hover {
+      background: rgba(0,0,0,0.1);
+    }
+    body.dark .service-item:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ===== Galerias ===== */
+    .gallery {
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .gallery img, .gallery video {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 5px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover, .gallery video:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== CTA e Redes ===== */
+    .cta-button {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 1rem 0;
+    }
+
+    .cta-button:hover {
+      background: #1ebd5a;
+    }
+
+    .social-links a {
+      display: block;
+      margin: 0.3rem 0;
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffcc00;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+    body.dark footer { color: #aaa; }
+
+    /* ===== Botão tema ===== */
+    .toggle-theme {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão modo claro/escuro -->
+  <button class="toggle-theme" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="card">
+    <div class="profile-img">
+      <img src="Sem título.png" alt="Foto de Perfil">
+    </div>
+    <h1>Luan Lima</h1>
+    <p class="description">| Técnico Colorista Automotivo |</p>
+
+    <!-- Serviços -->
+    <div class="services">
+      <div class="service-item" onclick="toggleGallery('gallery1')">
+        <i class="fas fa-palette"></i> Ajuste e formulação de cores
+      </div>
+      <div id="gallery1" class="gallery">
+        <img src="ajuste1.jpg" alt="Ajuste 1">
+        <img src="ajuste3.jpg" alt="Ajuste 2">
+      </div>
+
+      <div class="service-item" onclick="toggleGallery('gallery2')">
+        <i class="fas fa-car"></i> Pintura automotiva e retoques
+      </div>
+        <div id="gallery2" class="gallery">
+            <video autoplay loop muted playsinline src="pint1.mp4"></video>
+            <video autoplay loop muted playsinline src="pint2.mp4"></video>
+            <video autoplay loop muted playsinline src="pint3.mp4"></video>
+        </div>
+
+
+      <div class="service-item" onclick="toggleGallery('gallery3')">
+        <i class="fas fa-eye-dropper"></i> Fórmulas personalizadas
+      </div>
+          <div id="gallery3" class="gallery">
+            <video autoplay loop muted playsinline src="pers1.mp4"></video>
+            <video autoplay loop muted playsinline src="pers2.mp4"></video>
+            <video autoplay loop muted playsinline src="pers3.mp4"></video>
+        </div>
+    </div>
+
+    <!-- Botão CTA -->
+    <a href="https://wa.me/message/GKEYPGDQXQURF1" target="_blank" class="cta-button">
+      <i class="fab fa-whatsapp"></i> Fale comigo no WhatsApp
+    </a>
+
+    <!-- Redes sociais -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/l.limafrr?igsh=ODZ0dmhmYnlwMnF0&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    </div>
+
+    <footer>
+      <small>&copy; 2025 Luan Lima. Todos os direitos reservados.</small>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      const icon = document.querySelector(".toggle-theme i");
+      if (document.body.classList.contains("dark")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+
+    function toggleGallery(id) {
+      const gallery = document.getElementById(id);
+      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
